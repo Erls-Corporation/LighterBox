@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Test Page</title>
+<style type="text/css">
+<!--
+#testWrapper {
+    margin: 0 auto;
+    
+    width: 800px;
+    height: 1800px;
+    
+    background: #0F9;
+}
+
+#main {
+  height: 100%;
+}
+
+#popup1 {
+    width: 400px;
+    height: 800px;
+    
+    border: 2px solid red;
+    
+    background: -o-linear-gradient(rgb(255, 255, 255), rgb(255, 0, 0));
+    background: -moz-linear-gradient(top, #ffffff, #ff0000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ff0000));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffff0000');
+}
+
+#popup2 {
+    width: 1600px;
+    height: 200px;
+    
+    border: 2px solid blue;
+    
+    background: -o-linear-gradient(rgb(255, 255, 255), rgb(0, 0, 255));
+    background: -moz-linear-gradient(top, #ffffff, #0000ff);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#0000ff));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ff0000ff');
+}
+/*
+#test1btn {
+    display: block;
+    position: relative;
+    top: 1150px;
+}
+
+#test2btn {
+    display: block;
+    position: relative;
+    top: 50%;
+}*/
+-->
+</style>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.popify.js"></script>
+<script type="text/javascript">
+(function($){
+  $(document).ready(function() {
+    $('#popup1').popify({
+      overlayStyle: {
+        'opacity': 0.75,
+        'background': '#000'
+      }
+    });
+    $('#popup2').popify();
+    
+    $('#test1btn')
+    .click(function() {
+      $('#popup1').popifyOpen();
+      return false;
+    });
+    
+    $('#test2btn')
+    .click(function() {
+      $('#popup2').popifyOpen();
+      return false;
+    });
+  });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div id="testWrapper">
+        <div></div>
+        <div id="main">sdfdsfs
+            <a id="test1btn" href="#">Open 1</a>
+            <a id="test2btn" href="#">Open 2</a>
+
+            <div id="popup1">
+                <p>This is popup 1.</p>
+            </div>
+
+            <div id="popup2">
+                <p>This is popup 2.</p>
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <!-- #testWrapper -->
+</body>
+</html>
